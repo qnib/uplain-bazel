@@ -26,6 +26,7 @@ RUN apt-get update \
 RUN apt-get update \
  && apt-get install -y pkg-config zip g++ zlib1g-dev unzip python \
  && rm -rf /var/lib/apt/lists/*
-RUN wget -qO /opt/bazel-installer-linux-x86_64.sh https://github.com/bazelbuild/bazel/releases/download/0.19.2/bazel-0.19.2-installer-linux-x86_64.sh
+ARG BAZEL_VER=0.19.2
+RUN wget -qO /opt/bazel-installer-linux-x86_64.sh https://github.com/bazelbuild/bazel/releases/download/${BAZEL_VER}/bazel-${BAZEL_VER}-installer-linux-x86_64.sh
 RUN chmod +x /opt/bazel-installer-linux-x86_64.sh \
  && bash /opt/bazel-installer-linux-x86_64.sh

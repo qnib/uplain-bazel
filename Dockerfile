@@ -9,7 +9,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     DEBCONF_NONINTERACTIVE_SEEN=true
 
 RUN apt-get update \
- && apt-get install --no-install-recommends -y software-properties-common swig \
+ && apt-get install --no-install-recommends -y software-properties-common swig gpg-agent \
  && rm -rf /var/lib/apt/lists/*
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections \
